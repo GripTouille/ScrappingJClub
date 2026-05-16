@@ -5,59 +5,86 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
-# --- CONFIGURATION ---
-# Utilise le chemin complet pour être sûr
-TARGET_DIR = os.path.join(os.path.expanduser("~"), "Documents", "documents_prepa")
-if not os.path.exists(TARGET_DIR):
-    os.makedirs(TARGET_DIR)
+# --- CONFIGURATION DE BASE ---
+# Ton dossier principal
+BASE_TARGET_DIR = os.path.join(os.path.expanduser("~"), "Documents", "documents_prepa")
+if not os.path.exists(BASE_TARGET_DIR):
+    os.makedirs(BASE_TARGET_DIR)
 
-# CONFIGURATION SPÉCIALE POUR LE TÉLÉCHARGEMENT AUTOMATIQUE
 options = webdriver.ChromeOptions()
 prefs = {
-    "download.default_directory": TARGET_DIR, # Dossier où les PDF vont tomber
-    "download.prompt_for_download": False,    # Ne pas demander de confirmation
+    "download.prompt_for_download": False,
     "directory_upgrade": True,
-    "plugins.always_open_pdf_externally": True # Force le téléchargement au lieu d'ouvrir le lecteur
+    "plugins.always_open_pdf_externally": True 
 }
 options.add_experimental_option("prefs", prefs)
+
+# SI TU UTILISES BRAVE, décommente la ligne ci-dessous et mets ton chemin :
+# options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
 
 print("🚀 Lancement du navigateur...")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 try:
+    # On ouvre le site
     driver.get("https://cahier-de-prepa.fr/mpsi2-charlemagne/")
     
-    print("\n--- 📝 ACTION ---")
-    print(f"1. Connecte-toi et va sur ta page de cours.")
-    print(f"2. Tes fichiers seront enregistrés ici : {TARGET_DIR}")
-    input("👉 Une fois la liste des chapitres affichée, appuie sur ENTRÉE...")
+    print("\n--- 🔐 ÉTAPE 1 : CONNEXION ---")
+    print("Connecte-toi sur le site dans la fenêtre qui vient de s'ouvrir.")
+    input("👉 Une fois connecté (sur n'importe quelle page), appuie sur ENTRÉE ici...")
 
-    # On cherche les liens de téléchargement
-    print("🔎 Analyse de la page...")
-    all_links = driver.find_elements(By.TAG_NAME, "a")
-    download_urls = []
+    # On entre dans la boucle infinie
+    while True:
+        print("\n==================================================")
+        print("🔄 PRÊT POUR UNE NOUVELLE ASPIRATION")
+        print("==================================================")
+        print("1. Dans ton navigateur, va dans la section voulue (ex: Cours, TD, DM...).")
+        print("2. Reviens dans ce terminal.")
+        
+        # On demande le nom du dossier à l'utilisateur
+        reponse = input("\n📂 Donne un nom pour le dossier de cette page (ou tape 'FIN' pour quitter) : ").strip()
+        
+        # Condition de sortie
+        if reponse.upper() == 'FIN' or reponse == '':
+            print("\n👋 Fin du programme. Bonnes révisions !")
+            break
+            
+        # Création du sous-dossier spécifique (ex: documents_prepa/Cours)
+        current_folder_path = os.path.join(BASE_TARGET_DIR, reponse)
+        if not os.path.exists(current_folder_path):
+            os.makedirs(current_folder_path)
+            
+        # CONFIGURATION DYNAMIQUE : On change le dossier de téléchargement à la volée !
+        driver.execute_cdp_cmd("Browser.setDownloadBehavior", {
+            "behavior": "allow",
+            "downloadPath": os.path.abspath(current_folder_path)
+        })
 
-    for link in all_links:
-        href = link.get_attribute("href")
-        if href and "download?id=" in href:
-            download_urls.append(href)
+        # Scan des liens sur la page actuelle
+        print("🔎 Analyse des documents sur la page...")
+        all_links = driver.find_elements(By.TAG_NAME, "a")
+        download_urls = []
 
-    if not download_urls:
-        print("❌ Aucun lien trouvé !")
-    else:
-        print(f"✅ {len(download_urls)} fichiers détectés. Lancement du téléchargement natif...")
+        for link in all_links:
+            href = link.get_attribute("href")
+            if href and "download?id=" in href:
+                download_urls.append(href)
+
+        if not download_urls:
+            print("❌ Aucun document téléchargeable trouvé sur cette page. Es-tu au bon endroit ?")
+            continue
+            
+        print(f"✅ {len(download_urls)} fichiers détectés pour le dossier '{reponse}'.")
+        print("📥 Téléchargement en cours...")
 
         for i, url in enumerate(download_urls):
-            print(f"[{i+1}/{len(download_urls)}] 📥 Récupération...")
-            # On navigue directement sur l'URL de téléchargement
-            # Grâce aux options 'prefs' plus haut, le navigateur va le télécharger direct
+            print(f"   [{i+1}/{len(download_urls)}] En cours...")
             driver.get(url) 
-            time.sleep(1) # Petit délai pour laisser le téléchargement démarrer
+            time.sleep(0.8) # On laisse un petit délai pour chaque fichier
 
-    print(f"\n✨ TERMINÉ ! Vérifie ton dossier '{TARGET_DIR}'.")
-    print("Les fichiers devraient maintenant faire plusieurs centaines de Ko.")
+        print(f"🎉 Terminé pour la section '{reponse}' !")
+        print(f"📁 Tes fichiers sont rangés ici : {current_folder_path}")
 
 finally:
-    print("\nFermeture dans 10 secondes...")
-    time.sleep(10)
+    print("\nFermeture du navigateur...")
     driver.quit()
