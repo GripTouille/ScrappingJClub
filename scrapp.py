@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 import os
 import time
 
+from fonctions import attendre_fin_telechargements
+
 # --- CONFIGURATION DE BASE ---
 # Ton dossier principal
 BASE_TARGET_DIR = os.path.join(os.path.expanduser("~"), "Documents", "documents_prepa")
@@ -18,9 +20,6 @@ prefs = {
     "plugins.always_open_pdf_externally": True 
 }
 options.add_experimental_option("prefs", prefs)
-
-# SI TU UTILISES BRAVE, décommente la ligne ci-dessous et mets ton chemin :
-# options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
 
 print("🚀 Lancement du navigateur...")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -80,7 +79,8 @@ try:
         for i, url in enumerate(download_urls):
             print(f"   [{i+1}/{len(download_urls)}] En cours...")
             driver.get(url) 
-            time.sleep(0.8) # On laisse un petit délai pour chaque fichier
+            
+            attendre_fin_telechargements(current_folder_path)
 
         print(f"🎉 Terminé pour la section '{reponse}' !")
         print(f"📁 Tes fichiers sont rangés ici : {current_folder_path}")
