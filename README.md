@@ -20,7 +20,7 @@
 
 Avant de lancer le script, assurez-vous d'avoir :
 1.  **Python 3.x** installé sur votre machine.
-2.  Le navigateur **Google Chrome** (ou **Brave Browser** configuré dans les options).
+2.  Le navigateur **Google Chrome**.
 
 ---
 
