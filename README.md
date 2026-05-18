@@ -31,3 +31,5 @@ Avant de lancer le script, assurez-vous d'avoir :
 
 ```bash
 pip install -r requirements.txt
+
+---
