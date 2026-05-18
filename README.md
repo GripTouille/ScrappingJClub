@@ -26,7 +26,8 @@ Avant de lancer le script, assurez-vous d'avoir :
 
 ## 🛠️ Installation
 
-Ouvrez votre terminal et installez les dépendances nécessaires avec la commande suivante :
+1. Clonez ou téléchargez ce dépôt sur votre machine.
+2. Ouvrez votre terminal dans le dossier du projet et installez toutes les dépendances d'un coup avec la commande :
 
 ```bash
-pip install selenium webdriver-manager
+pip install -r requirements.txt
