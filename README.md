@@ -16,20 +16,33 @@
 
 ---
 
-## 📋 Prérequis
+## 🛠️ Installation & Utilisation (Guide Rapide)
 
-Avant de lancer le script, assurez-vous d'avoir :
-1.  **Python 3.x** installé sur votre machine.
-2.  Le navigateur **Google Chrome**.
+Pas besoin d'être un expert en informatique, suis juste ces 3 étapes :
+
+### Étape 1 : Installer Python et Google Chrome
+1. Télécharge et installe **Google Chrome** (si ce n'est pas déjà fait).
+2. Télécharge **Python 3.x** sur le site officiel.
+3. ⚠️ **TRÈS IMPORTANT lors de l'installation de Python :** Coche bien la case **"Add python.exe to PATH"** tout en bas de la première fenêtre avant de cliquer sur "Install Now". Si tu oublies, le script ne pourra pas se lancer.
+
+### Étape 2 : Récupérer le projet
+1. Clique sur le bouton vert **`Code`** en haut à droite de cette page GitHub, puis sur **`Download ZIP`**.
+2. Extrais le fichier ZIP là où tu veux sur ton ordinateur (par exemple dans tes Documents).
+
+### Étape 3 : Installer et Lancer !
+* **Sous Windows :**
+  1. Double-clique sur `installer.bat` (attends que la fenêtre te dise que c'est fini).
+  2. Double-clique sur `lancer.bat` pour démarrer le script !
+  
+* **Sous Mac / Linux (via le Terminal) :**
+  1. Ouvre ton terminal dans le dossier et tape : `pip install -r requirements.txt`
+  2. Lance le script avec : `python scrapp.py`
 
 ---
 
-## 🛠️ Installation
-
-1. Clonez ou téléchargez ce dépôt sur votre machine.
-2. Ouvrez votre terminal dans le dossier du projet et installez toutes les dépendances d'un coup avec la commande :
-
-```bash
-pip install -r requirements.txt
-
----
+## 📖 Comment ça marche une fois lancé ?
+1. Une fenêtre Google Chrome va s'ouvrir toute seule.
+2. Connecte-toi manuellement à ton compte *Cahier de Prépa*.
+3. Reviens sur la console (la fenêtre noire) et appuie sur **ENTRÉE**.
+4. Entre le nom que tu veux donner au dossier (ex: `Physique_TD` ou `Maths_Cours`).
+5. Laisse la magie opérer ! Les fichiers seront classés proprement dans ton dossier `Documents/documents_prepa/`.
