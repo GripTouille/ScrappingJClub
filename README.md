@@ -30,11 +30,11 @@ Pas besoin d'être un expert en informatique, suis juste ces 3 étapes :
 2. Extrais le fichier ZIP là où tu veux sur ton ordinateur (par exemple dans tes Documents).
 
 ### Étape 3 : Installer et Lancer !
-* **Sous Windows :**
+  **Sous Windows :**
   1. Double-clique sur `installer.bat` (attends que la fenêtre te dise que c'est fini).
   2. Double-clique sur `lancer.bat` pour démarrer le script !
   
-* **Sous Mac / Linux (via le Terminal) :**
+  **Sous Mac / Linux (via le Terminal) :**
   1. Ouvre ton terminal dans le dossier et tape : `pip install -r requirements.txt`
   2. Lance le script avec : `python scrapp.py`
 
@@ -46,3 +46,4 @@ Pas besoin d'être un expert en informatique, suis juste ces 3 étapes :
 3. Reviens sur la console (la fenêtre noire) et appuie sur **ENTRÉE**.
 4. Entre le nom que tu veux donner au dossier (ex: `Physique_TD` ou `Maths_Cours`).
 5. Laisse la magie opérer ! Les fichiers seront classés proprement dans ton dossier `Documents/documents_prepa/`.
+
