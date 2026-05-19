@@ -20,9 +20,9 @@
 
 Pas besoin d'être un expert en informatique, suis juste ces 3 étapes :
 
-### Étape 1 : Installer Python et Google Chrome
-1. Télécharge et installe **Google Chrome** (si ce n'est pas déjà fait).
-2. Télécharge **Python 3.x** sur le site officiel.
+### Étape 1 : Installer Python et Google Chrome (si ce n'est pas déjà fait)
+1. Télécharge et installe **Google Chrome**.
+2. Télécharge [Python3](https://www.python.org/downloads/).
 3. ⚠️ **TRÈS IMPORTANT lors de l'installation de Python :** Coche bien la case **"Add python.exe to PATH"** tout en bas de la première fenêtre avant de cliquer sur "Install Now". Si tu oublies, le script ne pourra pas se lancer.
 
 ### Étape 2 : Récupérer le projet
