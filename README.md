@@ -19,7 +19,7 @@
 ## 📋 Prérequis
 
 Avant de lancer le script, assurez-vous d'avoir :
-1.  **Python 3.x** installé sur votre machine.
+1.   [Python3](https://www.python.org/downloads/)  installé sur votre machine.
 2.  Le navigateur **Google Chrome**.
 
 ---
