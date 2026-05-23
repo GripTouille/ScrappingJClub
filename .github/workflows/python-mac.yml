@@ -1,0 +1,30 @@
+name: Test Python sur macOS
+
+# Le test se lance à chaque push sur ton dépôt GitHub
+on: [push]
+
+jobs:
+  test-environnement-mac:
+    runs-on: macos-latest  # Lance un Mac dans le cloud de GitHub
+
+    steps:
+      # 1. Copie ton code sur le Mac virtuel
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      # 2. Installe Python proprement sur le Mac
+      - name: Configurer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Change par ta version si besoin
+
+      # 3. Installe tes bibliothèques si tu as un fichier requirements.txt
+      - name: Installer les dépendances
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # 4. Exécute ton script principal
+      - name: Lancer le script sous macOS
+        run: |
+          python scrapp.py
