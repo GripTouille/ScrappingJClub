@@ -24,9 +24,9 @@ Grâce à des scripts d'automatisation cliquables pour Windows (`.bat`) et pour 
 
 * **Connexion Assistée :** Ouvre une instance sécurisée de votre navigateur pour vous laisser vous authentifier sereinement (gestion des identifiants par l'utilisateur).
 * **Aspiration Sélective :** Vous permet de choisir précisément quel dossier (ex: *Mathématiques > DM*) vous souhaitez télécharger en local.
-* **Sélection Graphique Native :** Intègre une boîte de dialogue masquée (`tkinter`) pour vous laisser choisir l'emplacement exact de sauvegarde (compatible Windows Explorer et Mac Finder).
+* **Sélection Graphique Native :** Vous laisse choisir l'emplacement où sauvegarder le fichier téléchargé !
 * **Zéro Ligne de Commande au Quotidien :** Orchestration complète via des raccourcis cliquables adaptés à votre système d'exploitation.
-* **Gestion Propre des Erreurs :** Fermeture automatique du navigateur en fin de processus pour ne pas saturer la mémoire de votre ordinateur.
+
 
 ---
 
@@ -36,7 +36,7 @@ Voici l'architecture des fichiers présents dans votre dossier :
 
 | Fichier / Dossier | Système | Description |
 | :--- | :--- | :--- |
-| `scrapp.py` | Universel | **Script principal**. Gère la boucle principale, la console en émojis, la navigation Selenium et l'interaction utilisateur. |
+| `scrapp.py` | Universel | **Script principal**. Gère la boucle principale, la navigation Selenium et l'interaction utilisateur. |
 | `fonctions.py` | Universel | **Module utilitaire**. Regroupe les fonctions de téléchargement, de création de dossiers et d'analyse HTML. |
 | `requirements.txt` | Universel | Liste des bibliothèques Python tierces indispensables (ex: `selenium`). |
 | `installer.bat` | 🪟 Windows | Script d'installation automatique pour Windows (Double-clic). |
@@ -104,9 +104,6 @@ Peu importe que vous soyez sur Windows ou Mac, une fois le programme lancé :
 ---
 
 ## 🔍 Dépannage & FAQ
-
-#### ❓ VS Code m'affiche une alerte concernant un caractère "U+fe0f"
-C'est un avertissement purement visuel de l'éditeur de code lié à l'affichage des émojis (`1️⃣`, `2️⃣`, etc.). **Cela n'impacte en rien le fonctionnement du script**. Les fichiers `.bat` et `.command` exécutent le script en dehors de VS Code, donc l'alerte n'existe pas à l'exécution.
 
 #### ❓ Sur Mac, j'ai une erreur "Permission Denied" au double-clic
 Vous avez sauté l'Étape 1 de la section macOS. Vous devez donner les droits d'exécution aux fichiers `.command` en ouvrant un Terminal et en tapant `chmod +x ` suivi du chemin du fichier.
