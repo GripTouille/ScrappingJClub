@@ -53,7 +53,8 @@ Avant de démarrer, assurez-vous de disposer des éléments suivants :
 2. [Python3](https://www.python.org/downloads/) installé sur votre machine :
    * **Windows :** Pensez à cocher l'option *"Add Python to PATH"* lors de l'installation.
    * **Mac :** Installez-le via le site officiel (python.org) ou via Homebrew (`brew install python`).
-
+3. Clique sur le bouton vert **`Code`** en haut à droite de cette page GitHub, puis sur **`Download ZIP`**.
+4. Extrais le fichier ZIP là où tu veux sur ton ordinateur (par exemple dans tes Documents).
 ---
 
 ## ⚡ Configuration & Utilisation sous WINDOWS
