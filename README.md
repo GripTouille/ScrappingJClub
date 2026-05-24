@@ -1,4 +1,6 @@
 # 🚀 ScrappingJClub — Aspirateur de Documents (Cahier de Prépa)
+> **Ferfoui is the goat, don't forget.** 🐐
+> *This repository is meant to scrap Cahier de Prépa's folders as if you were a true J club member!*
 
 Bienvenue dans le projet **ScrappingJClub** ! Ce script d'automatisation en Python a été spécialement conçu pour simplifier la récupération, la sauvegarde et l'organisation des cours, TD, TP et DM depuis la plateforme **Cahier de Prépa** (spécifiquement configuré pour la classe **MPSI2 Charlemagne**). 
 
