@@ -21,10 +21,10 @@ echo "🔌 Activation de l'environnement virtuel..."
 source venv/bin/activate
 
 echo "🔄 Mise à jour de pip..."
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 echo "📥 Installation des modules requis (Selenium, Tkinter, etc.)..."
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 
 echo "=================================================="
 echo " 🎉 Installation terminée avec succès ! "
